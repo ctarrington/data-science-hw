@@ -1,0 +1,19 @@
+---
+title: "beta"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+## beta distribution
+$$
+beta(\alpha, \beta) = \frac {p^{\alpha-1} (1-p)^{\beta-1}} {beta\ function}
+\ where\ beta\ function = 
+\int_0^1 p^{\alpha-1} (1-p)^{\beta-1} dp
+$$
+The beta function normalizes the curve so it can serve as a PDF.
+
+```{r}
+curve(dbeta(x, 10, 10), col = "blue", xlab = "trial probabbility", ylab = "Density", xlim=c(0.1,0.9), ylim=c(0,5))
+title('10 successes, 10 failures')
+```
