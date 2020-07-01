@@ -17,3 +17,13 @@ The beta function normalizes the curve so it can serve as a PDF.
 curve(dbeta(x, 10, 10), col = "blue", xlab = "trial probabbility", ylab = "Density", xlim=c(0.1,0.9), ylim=c(0,5))
 title('10 successes, 10 failures')
 ```
+
+```{r}
+prior = c(1,1)
+first = c(58, 42)
+second = c(57, 43)
+
+first_ci <- qbeta(c(0.025, 0.975), prior[1]+first[1], prior[2]+first[2])
+second_ci <- qbeta(c(0.025, 0.975), prior[1]+first[1]+second[1], prior[2]+first[2]+second[2])
+```
+
