@@ -19,11 +19,37 @@ title('10 successes, 10 failures')
 ```
 
 ```{r}
+# 6.2
 prior = c(1,1)
 first = c(58, 42)
 second = c(57, 43)
 
 first_ci <- qbeta(c(0.025, 0.975), prior[1]+first[1], prior[2]+first[2])
 second_ci <- qbeta(c(0.025, 0.975), prior[1]+first[1]+second[1], prior[2]+first[2]+second[2])
+```
+
+```{r}
+#6.4 samples and multiplication
+step <- 0.00001
+xs = seq(step, 1-step, step)
+prior_samples <- dbeta(xs, 0.1, 0.1)
+plot(xs, prior_samples, title('prior'), ylim = c(0, 10))
+
+likelihood_samples <- dbeta(xs, 4,1)
+plot(xs, likelihood_samples, title('likelihood'))
+
+posterior_samples <- prior_samples * likelihood_samples
+plot(xs, posterior_samples, title('posterior'), ylim = c(0, 10))
+
+```
+```{r}
+curve(dbeta(x, 0.1, 0.1), col = "blue", xlab = "trial probabbility", ylab = "Density", xlim=c(0,1), ylim=c(0,10))
+title('shape1=0.1, shape2=0.1')
+```
+
+```{r}
+# 6.4 adding exponents
+curve(dbeta(x, 4.1, 1.1), col = "blue", xlab = "trial probabbility", ylab = "Density", xlim=c(0,1), ylim=c(0,10))
+title('shape1=4.1, shape2=1.1')
 ```
 
