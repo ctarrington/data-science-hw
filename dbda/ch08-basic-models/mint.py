@@ -1,3 +1,5 @@
+from scipy.stats import beta
+
 class Mint:
   mint_ctr = 0
 
