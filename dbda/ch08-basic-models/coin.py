@@ -1,3 +1,5 @@
+from scipy.stats import bernoulli
+
 class Coin:
   coin_ctr = 0
 
