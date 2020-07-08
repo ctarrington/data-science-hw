@@ -1,4 +1,4 @@
-from scipy.stats import beta
+from scipy.stats import bernoulli, beta
 
 class Mint:
   mint_ctr = 0
