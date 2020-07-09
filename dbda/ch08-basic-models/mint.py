@@ -1,4 +1,4 @@
-from scipy.stats import bernoulli, beta
+from scipy.stats import bernoulli, beta, norm
 
 class Mint:
   mint_ctr = 0
@@ -7,10 +7,7 @@ class Mint:
     self.id = Mint.mint_ctr
     Mint.mint_ctr = Mint.mint_ctr + 1
 
-    var = std * std
-    shape1 = ((1 - mean) / var - 1 / mean) * mean ** 2
-    shape2 = shape1 * (1 / mean - 1)
-    self.rv = beta(shape1, shape2)
+    self.rv = norm(mean, std)
 
   def make_coins(self, count, target = None):
     probabilities = self.rv.rvs(count)
