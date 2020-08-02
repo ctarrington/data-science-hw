@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+from matplotlib.pyplot import plot
+from matplotlib import pyplot as plt
+
 initial_x = 4000
 initial_dx = 280
 inital_ax = 2
@@ -45,4 +48,7 @@ for step in range(10):
 
 df.columns = ['seconds', 'x', 'x_dot']
 print('df\n', df)
+
+plot(df['seconds'], df['x'], 'co')
+plt.show()
 
