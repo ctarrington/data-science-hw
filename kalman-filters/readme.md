@@ -4,6 +4,8 @@ Simple Kalman 1-D filter from video X
  * visualization
  
 For 1D
+ * factor out first model
+ 
  * generate determinisitic observations by passing
    * an initial position (shaped)
    * an initial velocity (shaped)
