@@ -3,16 +3,20 @@ import queue
 import numpy as np
 import pandas as pd
 
+from io import StringIO
+
 from ballistic_filter import BallisticFilter
 
-# todo convert from Queue to df?
-observations = queue.Queue()
-observations.put(np.array([[4000], [280]]))
-observations.put(np.array([[4260], [282]]))
-observations.put(np.array([[4550], [285]]))
-observations.put(np.array([[4860], [286]]))
-observations.put(np.array([[5110], [290]]))
+data = StringIO("""
+    x,x_dot
+    4000,280
+    4260,282
+    4550,285
+    4860,286
+    5110,290
+    """)
 
+observations_df = pd.read_csv(data)
 filter = BallisticFilter(acceleration_x=2,
                          time_step_size=1,
                          process_error_x=20,
@@ -23,11 +27,11 @@ filter = BallisticFilter(acceleration_x=2,
 
 
 df = pd.DataFrame()
-
-for step in range(observations.qsize()):
-    observation = observations.get()
-    row = filter.iterate(observation)
-    df = df.append(pd.DataFrame(row), ignore_index=True)
+for step, observation in observations_df.iterrows():
+    column_vector = observation.to_numpy()
+    column_vector.shape = (2, 1)
+    state_row = filter.iterate(column_vector)
+    df = df.append(pd.DataFrame(state_row), ignore_index=True)
 
 df.columns=['seconds', 'x', 'x_dot']
 print('df\n', df)
