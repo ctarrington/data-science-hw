@@ -7,16 +7,16 @@ For 1D
  * factor out first model  X
  
  * generate determinisitic observations by passing
-   * an initial position 
-   * an initial velocity 
-   * an acceleration function  based on elapsed time
+   * an initial position X
+   * an initial velocity X
+   * an acceleration function  based on elapsed time - need sample
    * a noise factor 
-   * a simulation resolution (internal step period)
-   * a sampling resolution (how often to record an observation)
-   * a seed to make it really really deterministic 
+   * a simulation resolution (internal step period) x
+   * a sampling resolution (how often to record an observation) x
+   * a seed to make it really really deterministic - need to test w noise
    
  * Factor out so a scenario file
-   * gets observations as a DataFrame
+   * gets observations as a DataFrame x
    * contructs a filter X
    * passes each observations and gets results X
    * accumulates results in a DataFrame X
