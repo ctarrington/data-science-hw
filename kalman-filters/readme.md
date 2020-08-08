@@ -10,10 +10,10 @@ For 1D
    * an initial position X
    * an initial velocity X
    * an acceleration function  based on elapsed time - need sample
-   * a noise factor 
+   * a noise factor x 
    * a simulation resolution (internal step period) x
    * a sampling resolution (how often to record an observation) x
-   * a seed to make it really really deterministic - need to test w noise
+   * a seed to make it really really deterministic - need to test w noise x
    
  * Factor out so a scenario file
    * gets observations as a DataFrame x
