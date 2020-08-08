@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class BallisticFilter:
     def __init__(self,
                  acceleration_x,
@@ -8,7 +9,7 @@ class BallisticFilter:
                  process_error_dx,
                  observation_error_x,
                  observation_error_dx,
-                 verbose = False):
+                 verbose=False):
         self.acceleration_x = acceleration_x
         self.dt = time_step_size
         self.process_error_x = process_error_x
@@ -29,7 +30,7 @@ class BallisticFilter:
         # conditioning matrices
         self.A = np.array([[1, self.dt], [0, 1]])
         self.A_transposed = self.A.transpose()
-        self.B = np.array([[0.5*self.dt**2], [self.dt]])
+        self.B = np.array([[0.5 * self.dt ** 2], [self.dt]])
 
         # silly in this case since I transposed == I
         self.H = np.identity(2, dtype=int)
@@ -39,13 +40,13 @@ class BallisticFilter:
         self.mu_control = np.array([self.acceleration_x])
 
         # observation error matrix
-        self.R_observation_error = np.array([[self.observation_error_x**2, 0], [0, self.observation_error_dx**2]])
+        self.R_observation_error = np.array([[self.observation_error_x ** 2, 0], [0, self.observation_error_dx ** 2]])
 
         # initial process covariance
         # zero out covariances since we have no reason to believe process errors are corelated
         self.process_covariance = np.array([
-            [self.process_error_x**2, 0],
-            [0, self.process_error_dx**2]
+            [self.process_error_x ** 2, 0],
+            [0, self.process_error_dx ** 2]
         ])
 
         if self.verbose:
@@ -55,13 +56,13 @@ class BallisticFilter:
             print('H\n', self.H)
             print('H_transposed\n', self.H_transposed)
             print('mu_control\n', self.mu_control)
-            print('R_observation_error \n', self.R_observation_error )
+            print('R_observation_error \n', self.R_observation_error)
             print('inital state\n', self.state)
             print('process_covariance\n', self.process_covariance)
 
         self.step = self.step + 1
         row = np.append([0], self.state)
-        row.shape = (1,3)
+        row.shape = (1, 3)
         return row
 
     def iterate(self, observation):
@@ -96,14 +97,13 @@ class BallisticFilter:
         if self.verbose:
             print('kalman gain at ', elapsed, ' seconds\n', kalman_gain)
 
-
         # calculate the predicted state
         # state = A * state + B * control
         left = self.A.dot(self.state)
 
         # numpy gets confused due to mu_control being 1 by 1
         right = self.B.dot(self.mu_control)
-        right.shape = (2,1)
+        right.shape = (2, 1)
 
         predicted_state = np.add(left, right)
 
@@ -129,10 +129,7 @@ class BallisticFilter:
 
         self.step = self.step + 1
         row = np.append([elapsed], self.state)
-        row.shape = (1,3)
+        row.shape = (1, 3)
         return row
 
-
 # todo add a plot details?
-
-

@@ -1,8 +1,9 @@
 import numpy as np
 
+
 class BallisticData:
-    def __init__(self, initial_x, initial_x_dot, acceleration_function, noise = (1,1),
-                 steps_per_iteration = 500, time_per_iteration = 1, max_iterations = 5, seed = 123):
+    def __init__(self, initial_x, initial_x_dot, acceleration_function, noise=(1, 1),
+                 steps_per_iteration=500, time_per_iteration=1, max_iterations=5, seed=123):
         self.initial_x = initial_x
         self.initial_x_dot = initial_x_dot
         self.acceleration_function = acceleration_function
@@ -15,7 +16,6 @@ class BallisticData:
 
         self.step_time = time_per_iteration / steps_per_iteration
 
-
     def __iter__(self):
         self.x = self.initial_x
         self.x_dot = self.initial_x_dot
@@ -25,11 +25,11 @@ class BallisticData:
         return self
 
     def __increment_step(self):
-        current_time = self.step*self.step_time
+        current_time = self.step * self.step_time
         acceleration = self.acceleration_function(current_time)
         old_x_dot = self.x_dot
         self.x_dot = self.x_dot + acceleration * self.step_time
-        adjusted_x_dot = (old_x_dot + self.x_dot) /2
+        adjusted_x_dot = (old_x_dot + self.x_dot) / 2
         self.x = self.x + adjusted_x_dot * self.step_time
         self.step = self.step + 1
 
@@ -50,4 +50,3 @@ class BallisticData:
             self.__increment_step()
 
         return column_vector
-

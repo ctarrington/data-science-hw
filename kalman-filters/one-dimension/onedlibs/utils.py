@@ -1,8 +1,11 @@
 import numpy as np
 import pandas as pd
 
+from matplotlib.pyplot import plot
+from matplotlib import pyplot as plt
 
-def convert_observations_to_data_frame(vectors, dt = 1):
+
+def convert_observations_to_data_frame(vectors, dt=1):
     df = pd.DataFrame()
     time = 0
     for vector in vectors:
@@ -23,3 +26,34 @@ def filter_observations(kf, observations):
 
     df.columns = ['seconds', 'x', 'x_dot']
     return df
+
+
+def plot_states(actual_df, observed_df, filtered_df):
+    for attribute in ('x', 'x_dot'):
+        plot(actual_df['seconds'], actual_df[attribute], 'o', alpha=0.5, label='Actual')
+        plot(observed_df['seconds'], observed_df[attribute], 'o', alpha=0.5, label='Observed')
+        plot(filtered_df['seconds'], filtered_df[attribute], 'o', alpha=0.5, label='Filtered')
+        plt.ylabel(attribute, rotation=90)
+        plt.legend()
+        plt.show()
+
+
+def plot_noise(actual_df, observed_df, filtered_df):
+    noise = actual_df - observed_df
+    filtered_noise = actual_df - filtered_df
+    for attribute in ('x', 'x_dot'):
+        plot(filtered_df['seconds'], noise[attribute], 'o', label='Noise')
+        plot(filtered_df['seconds'], filtered_noise[attribute], 'o', label='Filtered Noise')
+        plt.ylabel(attribute, rotation=90)
+        plt.legend()
+        plt.show()
+
+def plot_improvement(actual_df, observed_df, filtered_df):
+    noise = actual_df - observed_df
+    filtered_noise = actual_df - filtered_df
+    for attribute in ('x', 'x_dot'):
+        improvement = noise[attribute].abs() - filtered_noise[attribute].abs()
+        plot(actual_df['seconds'], improvement, 'o', label='Improvement')
+        plt.ylabel(attribute, rotation=90)
+        plt.legend()
+        plt.show()
