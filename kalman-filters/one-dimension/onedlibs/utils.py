@@ -39,14 +39,17 @@ def plot_states(actual_df, observed_df, filtered_df):
 
 
 def plot_noise(actual_df, observed_df, filtered_df):
-    noise = actual_df - observed_df
-    filtered_noise = actual_df - filtered_df
+    noise = observed_df - actual_df
+    filtered_noise = filtered_df - actual_df
+    last_time = actual_df['seconds'].tail(1).item()
     for attribute in ('x', 'x_dot'):
         plot(filtered_df['seconds'], noise[attribute], 'o', label='Noise')
         plot(filtered_df['seconds'], filtered_noise[attribute], 'o', label='Filtered Noise')
+        plt.hlines(0, 0, last_time)
         plt.ylabel(attribute, rotation=90)
         plt.legend()
         plt.show()
+
 
 def plot_improvement(actual_df, observed_df, filtered_df):
     noise = actual_df - observed_df
