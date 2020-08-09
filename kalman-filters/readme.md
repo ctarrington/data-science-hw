@@ -9,7 +9,7 @@ For 1D
  * generate determinisitic observations by passing
    * an initial position X
    * an initial velocity X
-   * an acceleration function  based on elapsed time - need sample
+   * an acceleration function  based on elapsed time x
    * a noise factor x 
    * a simulation resolution (internal step period) x
    * a sampling resolution (how often to record an observation) x
@@ -20,9 +20,9 @@ For 1D
    * contructs a filter X
    * passes each observations and gets results X
    * accumulates results in a DataFrame X
-   * calls plot utility with DataFrame
-   * calls diagnostics on filter
-   * plot real (0 noise), observed and kalmanized
+   * calls plot utility with DataFrame x
+   * diagnostics on filter - verbose mode x
+   * plot real (0 noise), observed and kalmanized x
    
 * before next round of reading experiment some with 
   * make the KG change or revert based on the error between pred and observed
