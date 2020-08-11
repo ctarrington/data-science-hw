@@ -5,26 +5,28 @@ from utils import convert_observations_to_data_frame, filter_observations, plot_
 x_std = 1
 x_dot_std = 2
 max_iterations = 50
+normal_acceleration=2
+normal_velocity=5
 
 # change the acceleration to show how a mismatch in the model ruins everything
-acceleration_function = lambda t: 2 if t < max_iterations / 2 else 5
+acceleration_function = lambda t: normal_acceleration if t < max_iterations / 2 else normal_acceleration
 
-kf = BallisticFilter(acceleration_x=2,
+kf = BallisticFilter(acceleration_x=normal_acceleration,
                      time_step_size=1,
                      process_error_x=20,
                      process_error_dx=5,
                      observation_error_x=x_std ** 2,
                      observation_error_dx=x_dot_std ** 2,
-                     verbose=False)
+                     verbose=True)
 
 observations = BallisticData(initial_x=0,
-                             initial_x_dot=0,
+                             initial_x_dot=normal_velocity,
                              acceleration_function=acceleration_function,
                              noise=(x_std, x_dot_std),
                              max_iterations=max_iterations)
 
 noiseless_observations = BallisticData(initial_x=0,
-                                       initial_x_dot=0,
+                                       initial_x_dot=normal_velocity,
                                        acceleration_function=acceleration_function,
                                        noise=(0, 0),
                                        max_iterations=max_iterations)
