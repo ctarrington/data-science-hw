@@ -8,6 +8,9 @@ class Mint:
     Mint.mint_ctr = Mint.mint_ctr + 1
 
     self.rv = norm(mean, std)
+    
+  def __repr__(self):
+    return 'Mint(%r, %r)' % (self.mean, self.std)
 
   def make_coins(self, count, target = None):
     probabilities = self.rv.rvs(count)
@@ -27,6 +30,9 @@ class Coin:
     Coin.coin_ctr = Coin.coin_ctr + 1
     self.mint_id = mint_id
     self.bernoulli_rv = bernoulli(probability)
+    
+  def __repr__(self):
+    return 'Coin(%r, %r)' % (self.probability, self.mint_id)
     
 
   def flip(self, target = None):
