@@ -32,7 +32,7 @@ class Coin:
     self.bernoulli_rv = bernoulli(probability)
     
   def __repr__(self):
-    return 'Coin(%r, %r)' % (self.probability, self.mint_id)
+    return 'Coin(%r, %r)' % (self.bernoulli_rv.mean(), self.mint_id)
     
 
   def flip(self, target = None):
