@@ -9,7 +9,19 @@ RUN apt update
 RUN apt install -y r-cran-rstan
 
 RUN mkdir -p /setup
-COPY /install_packages.R /setup/install_packages.R
-RUN Rscript /setup/install_packages.R
 
+COPY /install_cmdstanr.R /setup/install_cmdstanr.R
+COPY /install_rstan.R /setup/install_rstan.R
+COPY /install_rethinking.R /setup/install_rethinking.R
+
+RUN Rscript /setup/install_rstan.R
+RUN Rscript /setup/install_cmdstanr.R
+RUN Rscript /setup/install_rethinking.R
+
+RUN mkdir -p /home/rstudio/github-repos
+RUN cd /home/rstudio/github-repos && git clone https://github.com/rmcelreath/rethinking.git
+
+USER rstudio
+RUN R -e 'cmdstanr::install_cmdstan()'
+USER root
 
