@@ -1,0 +1,22 @@
+---
+title: "w2-likelihoods"
+author: "CT Arrington"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Binomial
+How many success outcomes in n tries with probability p of a single success?    
+In this case we have 6 success outcomes in 10 tries and we are attempting to understand the likelihood of each choice of the parameter p. Shockingly, 0.6 is looking pretty good...
+```{r, echo=FALSE}
+probabilities <- seq(0.0, 1.0, 0.025)
+p_likelihood <- dbinom(6,10, probabilities) 
+p_likelihood <- p_likelihood / sum(p_likelihood)
+plot(probabilities, p_likelihood, main = "Likelihood of Parameter p for 6 successes in 10 tries")
+```
+```{r, echo=FALSE}
+successes <- seq(0, 10)
+n_likelihood <- dbinom(successes,10, 0.6) 
+n_likelihood <- n_likelihood / sum(n_likelihood)
+plot(successes, n_likelihood, main = "Likelihood of number of successes in 10 tries at p=0.6")
+```
