@@ -1,0 +1,40 @@
+---
+title: "w3-fair-or-biased"
+author: "CT Arrington"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Fair or unfair coins
+There are two coins. One is fair with p=0.5 and the other is biased with p=0.7
+Only one is being used.
+The topic that we are estimating is "Is this coin fair or biased?"
+Our prior belief is that the P(coin=biased)=0.6 and so P(coin=fair)=0.4
+
+
+```{r, echo=TRUE}
+bern <- function(p, y) {
+  from_heads <- p^y
+  from_tails <- (1-p)^(1-y)
+  return (from_heads * from_tails)
+} 
+
+```
+
+The likelihood of a heads is y=1 in the function $p^y(1-p)^{(1-y)}$
+So the likelihood of a heads when coin=fair is ``r bern(0.5, 1)`` and when coin=biased it is
+``r bern(0.7, 1)``
+The likelihood of a tail when coin=fair is ``r bern(0.5, 0)`` and when coin=biased it is ``r bern(0.7, 0)`` 
+
+The prior distribution of the coin is    
+p(y) = $\sum_{coins}p(y|coin)p(coin)$ =    
+p(y|coin=fair)p(coin=fair) + p(y|coin=biased)p(coin=biased)    
+
+p(tails) = 0.5 * 0.4 + 0.3 * 0.6 = ``r 0.5 * 0.4 + 0.3 * 0.6``    
+p(heads) = 0.5 * 0.4 + 0.7 * 0.6 = ``r 0.5 * 0.4 + 0.7 * 0.6``    
+
+
