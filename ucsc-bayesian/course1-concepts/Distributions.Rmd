@@ -1,0 +1,46 @@
+---
+title: "Distributions"
+output: html_document
+date: "`r Sys.Date()`"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bernoulli and Binomial
+
+Both Bernoulli and Binomial formulas are used to calculate the
+likelihood of simple success or failure, like tossing a coin. 
+
+## Bernoulli
+The likelihood of x successes in a single trial given a
+probability of success of p is: $f(x|p) = p^x (1-p)^{(1-x)}$ . 
+
+Since we are only talking about a single trial we can be formal and use an
+Indicator function to make it clear that f(x) is zero everywhere other than 0 or 1, as in   
+
+### Bernoulli Likelihood
+$$
+f(x|p) = p^x (1-p)^{(1-x)} I_{x \in \{0 ,1\}}
+$$ .
+
+## Binomial
+We might want to evaluate the likelihood of a sequence of bernoulli events. Assuming that all of the events are independent and can be modeled as from the same distribution then we can use the Binomial distribution. These criteria are known as Independent and Identically Distributed (IID).
+
+The likelihood of x successes in n trials given a probability of success of p is:
+$f(x|p)=\binom{n}{x} p^x (1-p)^{(n-x)}$ 
+
+### Binomial Likelihood
+$$f(x|p)=\frac{n!}{x! (n-x)!} p^x (1-p)^{(n-x)}$$
+
+## Conjugate Prior - Beta
+The likelihood x the Beta prior yields a Beta posterior
+
+$$
+Beta(\alpha,\beta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha) \Gamma(\beta)} p^{\alpha-1} (1-p)^{\beta-1}
+$$
+
