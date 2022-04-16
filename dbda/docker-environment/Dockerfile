@@ -24,6 +24,5 @@ USER rstudio
 RUN R -e 'install.packages("rjags", repos = "https://cloud.r-project.org/", dependencies = TRUE)'
 RUN R -e 'install.packages("runjags", repos = "https://cloud.r-project.org/", dependencies = TRUE)'
 
-USER rstudio
 # always put the user back to root so rstudio can run
 USER root
