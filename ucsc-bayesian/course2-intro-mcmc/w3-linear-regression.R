@@ -69,6 +69,7 @@ autocorr.diag(mod1_sim)
 autocorr.plot(mod1_sim)
 effectiveSize(mod1_sim)
 summary(mod1_sim)
+plot(loginfant ~ logincome, data = Leinhardt)
 
 # compare to lmod
 summary(lmod)
