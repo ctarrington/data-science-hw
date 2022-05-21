@@ -51,10 +51,10 @@ update(mod1, 5000) # burn-in
 
 mod1_sim = coda.samples(model=mod1,
                         variable.names=params1,
-                        n.iter=100*1000)
+                        n.iter=1e5)
 
 mod1_csim = do.call(rbind, mod1_sim) # combine multiple chains
-mean(mod1_csim[,1] > 0.080)
+mean(mod1_csim[,1] > 0.0) # probability from samples that b[1] is greater than 0 
 
 plot(mod1_sim)
 gelman.diag(mod1_sim)
