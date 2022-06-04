@@ -1,3 +1,4 @@
+library("rjags")
 library("MASS")
 library("coda")
 data("OME")
@@ -64,7 +65,7 @@ effectiveSize(mod_sim)
 ## calculate DIC
 dic1 = dic.samples(mod, n.iter=1e3)
 summary(mod_sim)
-
+dic1
 
 (pm_coef = colMeans(mod_csim))
 
