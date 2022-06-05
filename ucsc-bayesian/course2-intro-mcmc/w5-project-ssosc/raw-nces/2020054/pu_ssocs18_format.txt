@@ -1,0 +1,2591 @@
+***********************************************************************************
+****FILENAME:		pu_ssocs18_format.sas
+****AUTHOR:			United States Department of Education
+				    National Center for Education Statistics
+****INPUT FILE:		pu_ssocs18.sas7dbat
+
+****PURPOSE:
+	This file reads in the 2018 School Survey on Crime and Safety (SSOCS:2018)
+	unformatted SAS dataset and adds value labels.
+
+****A NOTE OF CAUTION:
+	The code that follows assumes that the SSOCS:2018 file has been copied
+	onto your hard drive into the C:\SSOCS18 directory. If this is not the
+	case, you must change C:\SSOCS18 in the libname statements below to the path in
+	which the pu_ssocs18.sas7bdat file is located.
+
+****LAST UPDATED: 11/20/2019
+***********************************************************************************;
+
+libname IN "C:\SSOCS18"; *see NOTE above;
+libname OUT "C:\SSOCS18"; *see NOTE above;
+
+
+data pu_ssocs18; 
+set IN.pu_ssocs18; *see NOTE above;
+
+
+proc format;
+value	C0110F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0112F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0114F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0116F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0120F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0121F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0122F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0125F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0129F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0134F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0136F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0138F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0140F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0139F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0141F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0143F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0142F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0144F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0146F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0150F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0153F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0155F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0158F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0162F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0166F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0170F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0169F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0161F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0157F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0163F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0165F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0167F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0174F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0183F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0176F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0181F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0175F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0177F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0179F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0186F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0600F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0602F
+-1	="Legitimate skip"
+1	="At least once a week"
+2	="At least once a month"
+3	="On occasion"
+4	="Never"
+;	
+	
+value	C0604F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0606F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0608F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0190F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0192F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0196F
+1	="0-25%"
+2	="26-50%"
+3	="51-75%"
+4	="76-100%"
+5	="Does not offer"
+;	
+	
+value	C0198F
+1	="0-25%"
+2	="26-50%"
+3	="51-75%"
+4	="76-100%"
+5	="Does not offer"
+;	
+	
+value	C0204F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0206F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0208F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0210F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0212F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0214F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0216F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0218F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0610F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0612F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0614F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0616F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0618F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0621F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0622F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0624F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0626F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0628F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0630F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0632F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0636F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0638F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0640F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0642F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0644F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0646F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0648F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0650F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0652F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+3	="Don't Know"
+;	
+	
+value	C0654F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+3	="Don't Know"
+;	
+	
+value	C0656F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+3	="Don't Know"
+;	
+	
+value	C0658F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+3	="Don't Know"
+;	
+	
+value	C0660F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+3	="Don't Know"
+;	
+	
+value	C0661F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0663F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0665F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0667F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0669F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0671F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0674F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0676F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0678F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0681F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0682F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0684F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0686F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0266F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0268F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0265F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0267F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0269F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0270F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0272F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0278F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0271F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0273F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0274F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0276F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0277F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0279F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0280F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0282F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0284F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0286F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0288F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0290F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0292F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0294F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0296F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0298F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0300F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0302F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+	
+value	C0304F
+1	="Limits in major way"
+2	="Limits in minor way"
+3	="Does not limit"
+;	
+
+value	C0690_R
+1	="Yes"
+2	="No"
+;
+	
+value	C0705F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0688F
+1	="None"
+2	="1-5"
+3	="6-10"
+4	="11 or more"
+;	
+	
+value	C0374F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0376F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0378F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0381F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0383F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0385F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0387F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0382F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0380F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0384F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0386F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0389F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0391F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0393F
+1	="Happens daily"
+2	="Happens at least once a week"
+3	="Happens at least once a month"
+4	="Happens on occasion"
+5	="Never happens"
+;	
+	
+value	C0402F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0404F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0406F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0408F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0410F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0412F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0422F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0424F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0426F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0428F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0430F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0432F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0434F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0436F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0444F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0446F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0448F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0450F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0452F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0454F
+1	="Yes"
+2	="No"
+;	
+	
+value	C0456F
+-1	="Legitimate skip"
+1	="Yes"
+2	="No"
+;	
+	
+value	C0560F
+1	="High level of crime"
+2	="Moderate level of crime"
+3	="Low level of crime"
+4	="Students come from areas with very different levels of crime"
+;	
+	
+value	C0562F
+1	="High level of crime"
+2	="Moderate level of crime"
+3	="Low level of crime"
+;	
+	
+value	C0014_RF
+-2	="Missing"
+1	="Principal"
+2	="Vice-principal or disciplinarian"
+3	="Security staff"
+4	="Other school-level staff"
+5	="Superintendent or district staff"
+;		
+	
+value	STRATAF
+111	="Primary, <300, City"
+112	="Primary, <300, Suburb"
+113	="Primary, <300, Town"
+114	="Primary, <300, Rural"
+121	="Primary, 300-499, City"
+122	="Primary, 300-499, Suburb"
+123	="Primary, 300-499, Town"
+124	="Primary, 300-499, Rural"
+131	="Primary, 500-999, City"
+132	="Primary, 500-999, Suburb"
+133	="Primary, 500-999, Town"
+134	="Primary, 500-999, Rural"
+141	="Primary, 1,000+, City"
+142	="Primary, 1,000+, Suburb"
+143	="Primary, 1,000+, Town or Rural"
+211	="Middle, <300, City"
+212	="Middle, <300, Suburb"
+213	="Middle, <300, Town"
+214	="Middle, <300, Rural"
+221	="Middle, 300-499, City"
+222	="Middle, 300-499, Suburb"
+223	="Middle, 300-499, Town"
+224	="Middle, 300-499, Rural"
+231	="Middle, 500-999, City"
+232	="Middle, 500-999, Suburb"
+233	="Middle, 500-999, Town"
+234	="Middle, 500-999, Rural"
+241	="Middle, 1,000+, City"
+242	="Middle, 1,000+, Suburb"
+243	="Middle, 1,000+, Town"
+244	="Middle, 1,000+, Rural"
+311	="High,  <300, City"
+312	="High, <300, Suburb"
+313	="High,  <300, Town"
+314	="High,  <300, Rural"
+321	="High, 300-499, City"
+322	="High, 300-499, Suburb"
+323	="High, 300-499, Town"
+324	="High, 300-499, Rural"
+331	="High, 500-999, City"
+332	="High, 500-999, Suburb"
+333	="High, 500-999, Town"
+334	="High, 500-999, Rural"
+341	="High, 1,000+, City"
+342	="High, 1,000+, Suburb"
+343	="High, 1,000+, Town"
+344	="High, 1,000+, Rural"
+413	="Combined, <300, City or Suburb"
+414	="Combined, <300, Town or Rural"
+421	="Combined, 300-499, City"
+423	="Combined, 300-499, Suburb or Town"
+424	="Combined, 300-499, Rural"
+431	="Combined, 500-999, City"
+432	="Combined, 500-999, Suburb"
+433	="Combined, 500-999, Town"
+434	="Combined, 500-999, Rural"
+441	="Combined, 1,000+, City"
+442	="Combined, 1,000+, Suburb"
+443	="Combined, 1,000+, Town"
+444	="Combined, 1,000+, Rural"
+;	
+	
+value	FR_URBANF
+1	="City"
+2	="Suburb"
+3	="Town"
+4	="Rural"
+;	
+			
+value	$FR_LVELF
+" 1" ="Primary"
+" 2" ="Middle"
+" 3" ="High"
+" 4" ="Combined"
+;	
+	
+value	FR_SIZEF
+1	="< 300"
+2	="300 - 499"
+3	="500 - 999"
+4	="1,000 +"
+;	
+	
+value     IC0110F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0112F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0114F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0116F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0120F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0121F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0122F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0125F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0129F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0134F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0136F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0138F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0140F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0139F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0141F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0143F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0142F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0144F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0146F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0150F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0153F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0155F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0158F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0162F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0166F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0170F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0169F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0161F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0157F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0163F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0165F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0167F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0174F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0183F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0176F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0181F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0175F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0177F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0179F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0186F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0600F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0602F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0604F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0606F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0608F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0190F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0192F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0196F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0198F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0204F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0206F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0208F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0210F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0212F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0214F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0216F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0218F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0610F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0612F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0614F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0616F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0618F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0621F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0622F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0624F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0626F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0628F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0630F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0632F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0636F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0638F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0640F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0642F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0644F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0646F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0648F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0650F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0652F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0654F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0656F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0658F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0660F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0661F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0663F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0665F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0667F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0669F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0671F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0674F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0676F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0678F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0681F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0682F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0684F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0686F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0266F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0268F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0265F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0267F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0269F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0270F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0272F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0278F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0271F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0273F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0274F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0276F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0277F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0279F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0280F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0282F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0284F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0286F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0288F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0290F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0292F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0294F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0296F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0298F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0300F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0302F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0304F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0704F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0705F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0688F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0374F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0376F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0378F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0381F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0383F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0385F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0387F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0382F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0380F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0384F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0386F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0389F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0391F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0393F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0402F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0404F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0406F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0408F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0410F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0412F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0422F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0424F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0426F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0428F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0430F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0432F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0434F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0436F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0444F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0446F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0448F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0450F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0452F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0454F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0456F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0532F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0534F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0536F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0538F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0560F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0562F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0568F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0570F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0572F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0578F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+value     IC0580F
+0         ="Not imputed"
+7         ="Item was imputed by using data from the record for a similar case (donor)"
+8         ="Item was imputed by using the mean or mode of data for groups of similar cases"
+9         ="Data value was adjusted during analysts’ post-imputation review of data"
+;
+
+data OUT.pu_ssocs18_fmt; 
+set IN.pu_ssocs18;
+format
+C0110			C0110F.	
+C0112			C0112F.	
+C0114			C0114F.	
+C0116			C0116F.	
+C0120			C0120F.	
+C0121			C0121F.	
+C0122			C0122F.	
+C0125			C0125F.	
+C0129			C0129F.	
+C0134			C0134F.	
+C0136			C0136F.	
+C0138			C0138F.	
+C0140			C0140F.	
+C0139			C0139F.	
+C0141			C0141F.	
+C0143			C0143F.	
+C0142			C0142F.	
+C0144			C0144F.	
+C0146			C0146F.	
+C0150			C0150F.	
+C0153			C0153F.	
+C0155			C0155F.	
+C0158			C0158F.	
+C0162			C0162F.	
+C0166			C0166F.	
+C0170			C0170F.	
+C0169			C0169F.	
+C0161			C0161F.	
+C0157			C0157F.	
+C0163			C0163F.	
+C0165			C0165F.	
+C0167			C0167F.	
+C0174			C0174F.	
+C0183			C0183F.	
+C0176			C0176F.	
+C0181			C0181F.	
+C0175			C0175F.	
+C0177			C0177F.	
+C0179			C0179F.	
+C0186			C0186F.	
+C0600			C0600F.	
+C0602			C0602F.	
+C0604			C0604F.	
+C0606			C0606F.	
+C0608			C0608F.	
+C0190			C0190F.	
+C0192			C0192F.	
+C0196			C0196F.	
+C0198			C0198F.	
+C0204			C0204F.	
+C0206			C0206F.	
+C0208			C0208F.	
+C0210			C0210F.	
+C0212			C0212F.	
+C0214			C0214F.	
+C0216			C0216F.	
+C0218			C0218F.	
+C0610			C0610F.	
+C0612			C0612F.	
+C0614			C0614F.	
+C0616			C0616F.	
+C0618			C0618F.	
+C0621			C0621F.	
+C0622			C0622F.	
+C0624			C0624F.	
+C0626			C0626F.	
+C0628			C0628F.	
+C0630			C0630F.	
+C0632			C0632F.	
+C0636			C0636F.	
+C0638			C0638F.	
+C0640			C0640F.	
+C0642			C0642F.	
+C0644			C0644F.	
+C0646			C0646F.	
+C0648			C0648F.	
+C0650			C0650F.	
+C0652			C0652F.	
+C0654			C0654F.	
+C0656			C0656F.	
+C0658			C0658F.	
+C0660			C0660F.	
+C0661			C0661F.	
+C0663			C0663F.	
+C0665			C0665F.	
+C0667			C0667F.	
+C0669			C0669F.	
+C0671			C0671F.	
+C0674			C0674F.	
+C0676			C0676F.	
+C0678			C0678F.	
+C0681			C0681F.	
+C0682			C0682F.	
+C0684			C0684F.	
+C0686			C0686F.	
+C0266			C0266F.	
+C0268			C0268F.	
+C0265			C0265F.	
+C0267			C0267F.	
+C0269			C0269F.	
+C0270			C0270F.	
+C0272			C0272F.	
+C0278			C0278F.	
+C0271			C0271F.	
+C0273			C0273F.	
+C0274			C0274F.	
+C0276			C0276F.	
+C0277			C0277F.	
+C0279			C0279F.	
+C0280			C0280F.	
+C0282			C0282F.	
+C0284			C0284F.	
+C0286			C0286F.	
+C0288			C0288F.	
+C0290			C0290F.	
+C0292			C0292F.	
+C0294			C0294F.	
+C0296			C0296F.	
+C0298			C0298F.	
+C0300			C0300F.	
+C0302			C0302F.	
+C0304			C0304F.	
+C0690_R			C0690_RF.
+C0705			C0705F.	
+C0688			C0688F.	
+C0374			C0374F.	
+C0376			C0376F.	
+C0378			C0378F.	
+C0381			C0381F.	
+C0383			C0383F.	
+C0385			C0385F.	
+C0387			C0387F.	
+C0382			C0382F.	
+C0380			C0380F.	
+C0384			C0384F.	
+C0386			C0386F.	
+C0389			C0389F.	
+C0391			C0391F.	
+C0393			C0393F.	
+C0402			C0402F.	
+C0404			C0404F.	
+C0406			C0406F.	
+C0408			C0408F.	
+C0410			C0410F.	
+C0412			C0412F.	
+C0422			C0422F.	
+C0424			C0424F.	
+C0426			C0426F.	
+C0428			C0428F.	
+C0430			C0430F.	
+C0432			C0432F.	
+C0434			C0434F.	
+C0436			C0436F.	
+C0444			C0444F.	
+C0446			C0446F.	
+C0448			C0448F.	
+C0450			C0450F.	
+C0452			C0452F.	
+C0454			C0454F.	
+C0456			C0456F.	
+C0560			C0560F.	
+C0562			C0562F.	
+C0578_SOURCE		C0578_SOURCEF.	
+C0014_R			C0014_RF.		
+STRATA			STRATAF.		
+FR_URBAN		FR_URBANF.		
+FR_LVEL		     $FR_LVELF.	
+FR_SIZE			FR_SIZEF.				
+IC0110			IC0110F.
+IC0112			IC0112F.
+IC0114			IC0114F.
+IC0116			IC0116F.
+IC0120			IC0120F.
+IC0121			IC0121F.
+IC0122			IC0122F.
+IC0125			IC0125F.
+IC0129			IC0129F.
+IC0134			IC0134F.
+IC0136			IC0136F.
+IC0138			IC0138F.
+IC0140			IC0140F.
+IC0139			IC0139F.
+IC0141			IC0141F.
+IC0143			IC0143F.
+IC0142			IC0142F.
+IC0144			IC0144F.
+IC0146			IC0146F.
+IC0150			IC0150F.
+IC0153			IC0153F.
+IC0155			IC0155F.
+IC0158			IC0158F.
+IC0162			IC0162F.
+IC0166			IC0166F.
+IC0170			IC0170F.
+IC0169			IC0169F.
+IC0161			IC0161F.
+IC0157			IC0157F.
+IC0163			IC0163F.
+IC0165			IC0165F.
+IC0167			IC0167F.
+IC0174			IC0174F.
+IC0183			IC0183F.
+IC0176			IC0176F.
+IC0181			IC0181F.
+IC0175			IC0175F.
+IC0177			IC0177F.
+IC0179			IC0179F.
+IC0186			IC0186F.
+IC0600			IC0600F.
+IC0602			IC0602F.
+IC0604			IC0604F.
+IC0606			IC0606F.
+IC0608			IC0608F.
+IC0190			IC0190F.
+IC0192			IC0192F.
+IC0196			IC0196F.
+IC0198			IC0198F.
+IC0204			IC0204F.
+IC0206			IC0206F.
+IC0208			IC0208F.
+IC0210			IC0210F.
+IC0212			IC0212F.
+IC0214			IC0214F.
+IC0216			IC0216F.
+IC0218			IC0218F.
+IC0610			IC0610F.
+IC0612			IC0612F.
+IC0614			IC0614F.
+IC0616			IC0616F.
+IC0618			IC0618F.
+IC0621			IC0621F.
+IC0622			IC0622F.
+IC0624			IC0624F.
+IC0626			IC0626F.
+IC0628			IC0628F.
+IC0630			IC0630F.
+IC0632			IC0632F.
+IC0636			IC0636F.
+IC0638			IC0638F.
+IC0640			IC0640F.
+IC0642			IC0642F.
+IC0644			IC0644F.
+IC0646			IC0646F.
+IC0648			IC0648F.
+IC0650			IC0650F.
+IC0652			IC0652F.
+IC0654			IC0654F.
+IC0656			IC0656F.
+IC0658			IC0658F.
+IC0660			IC0660F.
+IC0661			IC0661F.
+IC0663			IC0663F.
+IC0665			IC0665F.
+IC0667			IC0667F.
+IC0669			IC0669F.
+IC0671			IC0671F.
+IC0674			IC0674F.
+IC0676			IC0676F.
+IC0678			IC0678F.
+IC0681			IC0681F.
+IC0682			IC0682F.
+IC0684			IC0684F.
+IC0686			IC0686F.
+IC0266			IC0266F.
+IC0268			IC0268F.
+IC0265			IC0265F.
+IC0267			IC0267F.
+IC0269			IC0269F.
+IC0270			IC0270F.
+IC0272			IC0272F.
+IC0278			IC0278F.
+IC0271			IC0271F.
+IC0273			IC0273F.
+IC0274			IC0274F.
+IC0276			IC0276F.
+IC0277			IC0277F.
+IC0279			IC0279F.
+IC0280			IC0280F.
+IC0282			IC0282F.
+IC0284			IC0284F.
+IC0286			IC0286F.
+IC0288			IC0288F.
+IC0290			IC0290F.
+IC0292			IC0292F.
+IC0294			IC0294F.
+IC0296			IC0296F.
+IC0298			IC0298F.
+IC0300			IC0300F.
+IC0302			IC0302F.
+IC0304			IC0304F.
+IC0705			IC0705F.
+IC0688			IC0688F.
+IC0374			IC0374F.
+IC0376			IC0376F.
+IC0378			IC0378F.
+IC0381			IC0381F.
+IC0383			IC0383F.
+IC0385			IC0385F.
+IC0387			IC0387F.
+IC0382			IC0382F.
+IC0380			IC0380F.
+IC0384			IC0384F.
+IC0386			IC0386F.
+IC0389			IC0389F.
+IC0391			IC0391F.
+IC0393			IC0393F.
+IC0402			IC0402F.
+IC0404			IC0404F.
+IC0406			IC0406F.
+IC0408			IC0408F.
+IC0410			IC0410F.
+IC0412			IC0412F.
+IC0422			IC0422F.
+IC0424			IC0424F.
+IC0426			IC0426F.
+IC0428			IC0428F.
+IC0430			IC0430F.
+IC0432			IC0432F.
+IC0434			IC0434F.
+IC0436			IC0436F.
+IC0444			IC0444F.
+IC0446			IC0446F.
+IC0448			IC0448F.
+IC0450			IC0450F.
+IC0452			IC0452F.
+IC0454			IC0454F.
+IC0456			IC0456F.
+IC0532			IC0532F.
+IC0534			IC0534F.
+IC0536			IC0536F.
+IC0538			IC0538F.
+IC0560			IC0560F.
+IC0562			IC0562F.
+IC0568			IC0568F.
+IC0570			IC0570F.
+IC0572			IC0572F.
+IC0578			IC0578F.
+IC0580			IC0580F.
+;
+run;
