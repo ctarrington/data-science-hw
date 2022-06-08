@@ -1,0 +1,35 @@
+---
+title: "Admissions"
+output: html_notebook
+---
+
+```{r, include=FALSE}
+source("create_data.R")
+```
+
+```{r, include=FALSE}
+df = create_data()
+
+d1_women = df %>% 
+  filter(department == 1) %>%
+  filter(gender == 1) 
+
+mean(d1_women$accepted)
+```
+
+```{r}
+as_tibble(UCBAdmissions)
+```
+
+```{r}
+df %>% 
+  group_by(department, gender) %>%
+  summarise(n = n(), mean(accepted))
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
