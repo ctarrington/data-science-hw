@@ -1,5 +1,6 @@
 ---
-title: "Admissions"
+title: "Equity in Admissions based on UCBAdmissions Dataset"
+author: CT Arrington
 output:
   pdf_document: default
   html_notebook: default
@@ -19,28 +20,36 @@ original_thetas = calculate_thetas()
 ```
 
 ### Overall Admissions by Gender
-```{r}
+The simplest way to think about equity in admissions is to consider the overall 
+admission rates by gender.
+
+As you can see below, men are accepted at a higher rate than women. So at first glance it seems clear that the admissons process
+at UC Berkley was not equitable towards women in 1973.
+```{r, echo=FALSE, out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Gender)) +
   geom_bar(position = "stack", stat = "identity")
 ```
+
 ### Overall Admissions by Department
-```{r}
+The simple model of only looking at gender only makes sense if the admissions are very similar from department to department.
+As you can see below, this is not at all the case. Some departments attract a lot more applicants than others
+and some are much more competitive.
+```{r, echo=FALSE, out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Dept)) +
   geom_bar(position = "stack", stat = "identity")
 ```
+
 ### Admissions by Gender for Each Department
-```{r}
+Another way to look at equity is per department.
+
+```{r, echo=FALSE, out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Gender)) +
   geom_bar(position = "stack", stat = "identity") +
   facet_wrap(vars(Dept))
 ```
 
 ### Admission Rates by Gender for Each Department
-
-```{r, echo=FALSE}
-```
-
-```{r}
+```{r, echo=FALSE, out.width="50%"}
 ggplot(original_thetas, aes(fill=Gender, y=admission_rate, x=Gender)) +
   geom_bar(position = "stack", stat = "identity") +
   facet_wrap(vars(Dept))
