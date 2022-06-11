@@ -1,9 +1,10 @@
 ---
-title: "Equity in Admissions based on UCBAdmissions Dataset"
+title: "Utility of Bayesian Techniques for Exploring the UCBAdmissions Dataset"
 author: CT Arrington
 output:
   pdf_document: default
   html_notebook: default
+urlcolor: blue
 ---
 
 ```{r, include=FALSE}
@@ -11,49 +12,99 @@ library(tidyverse)
 library(kableExtra)
 source("create_data.R")
 source("calculate_thetas.R")
+source("hierarchical_bernoulli_model.R")
 ```
 
 ```{r, include=FALSE}
 df = create_data()
 original_df = as.tibble(UCBAdmissions)
 original_thetas = calculate_thetas()
+hierarchical_bernoulli_results = run_hierarchical_bernoulli_model()
 ```
+# Executive Summary
+The [UCBAdmissions](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/UCBAdmissions.html) data set is extremely interesting as an example of how easy it is to misunderstand and misrepresent a data set. It is often used as a real world example of [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox) in which using finer grained groupings reveals patterns in data that are in direct conflict with the overall patterns. Specifically, when looking at the data as a whole, it seems very clear that female applicants are rejected at a higher rate. When the data is examined by department a very different pattern emerges.
 
-### Overall Admissions by Gender
-The simplest way to think about equity in admissions is to consider the overall 
-admission rates by gender.
+Clearly this data set has been analyzed many times and is well understood. The goal at hand for this project is to apply the hierarchical Bayesian models that we have learned to reveal the patterns. The following analysis shows that a hierarchical model with a Bernoulli likelihood can be used to extract the differences between acceptance rates for male and female applicants based on department.
 
-As you can see below, men are accepted at a higher rate than women. So at first glance it seems clear that the admissons process
-at UC Berkley was not equitable towards women in 1973.
-```{r, echo=FALSE, out.width="50%"}
+# Introduction
+The approach for determining if the Bayesian modeling techniques that we have learned will reveal the underlying patterns involves experimenting with different models. We are looking for models that reveal the patterns, preferably in a way that does not require a lot of translation or explication. Ideally, a Bayesian model should be easier to understand than other techniques.
+
+# Data 
+We do not have access to the full data used in the [original study](https://www.science.org/doi/10.1126/science.187.4175.398). All we have is the summary data as included in the data set. Fortunately, our problem is to determine if the techniques we learned would be sufficient given a data set of the size they had and with the same underlying patterns within. In short, I used R to create a data set with the same characteristic acceptance ratios.
+
+## Admissions by Gender and Admissions by Department
+As you can see below on the left, men are accepted at a higher rate than women. So at first glance it seems clear that the admissions process
+at UC Berkeley was not equitable towards women in 1973. However, this focus on gender alone only makes sense if the admissions are very similar from department to department. As you can see below on the right, this is not at all the case. Some departments attract a lot more applicants than others
+and some are much more competitive. 
+```{r, echo=FALSE, figures-side, fig.show="hold", out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Gender)) +
   geom_bar(position = "stack", stat = "identity")
-```
 
-### Overall Admissions by Department
-The simple model of only looking at gender only makes sense if the admissions are very similar from department to department.
-As you can see below, this is not at all the case. Some departments attract a lot more applicants than others
-and some are much more competitive.
-```{r, echo=FALSE, out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Dept)) +
   geom_bar(position = "stack", stat = "identity")
 ```
 
-### Admissions by Gender for Each Department
-Another way to look at equity is per department.
+## Admissions by Gender for Each Department
+So, it makes sense to dig a little deeper and see if there are gender related patterns within each department.
 
-```{r, echo=FALSE, out.width="50%"}
+The bar chart on the left shows the acceptance and rejection counts by gender for each department. As you can see, departments A and B are not very competitive and also do not attract many female applicants. Women are much more likely to apply to departments C, E, and F which are more competitive.
+
+The chart on the right obscures the number of applicants for each department but highlights that the admission rates are often better for women than for men. In fact the only dramatic difference is in department A in favor of female applicants.
+
+This exploratory data analysis is probably enough to convince an observer that there is more here than a simplistic men are more likely to be admitted than women narrative. 
+
+```{r, echo=FALSE, figures-side2, fig.show="hold", out.width="50%"}
 ggplot(original_df, aes(fill=Admit, y=n, x=Gender)) +
   geom_bar(position = "stack", stat = "identity") +
   facet_wrap(vars(Dept))
-```
 
-### Admission Rates by Gender for Each Department
-```{r, echo=FALSE, out.width="50%"}
 ggplot(original_thetas, aes(fill=Gender, y=admission_rate, x=Gender)) +
   geom_bar(position = "stack", stat = "identity") +
   facet_wrap(vars(Dept))
 ```
-### Next
-```{r}
+
+## Limitations of the Data
+Unfortunately we lack any context about the departments that might reveal more about the underlying equity or lack there of. Are the class sizes for departments that women want to attend artificially low? Why do so few women choose departments A and B? 
+
+We also do not have any information about the relative merit of the individual students, such as class rank, SAT score, or GPA.
+
+Fortunately, what we have is enough for the task at hand, which is to show that patterns within groups can be revealed by Bayesian methods.
+
+# Building a Model
+Several of our modeling choices are helpfully constrained by the type of data that we are given. Since the outcome being measured is success or failure, a Bernoulli likelihood seems inescapable. Since the differences between departments and gender seem to be very relevant we need to include them either as peers in a logistic regression or by directly by having a theta for each combination of department and gender.
+
+A simple logistic regression model with an intercept and a single coefficient for gender and a single coefficient for department yielded coefficients which converted back to thetas that resemble the admission rates for the departments without respect for gender. Clearly this doesn't match our intuition from the exploratory data analysis.
+
+An logistic regression model with an intercept for each department and a gender coefficient for each department produced coefficients that when converted back to Bernoulli thetas yielded the right patterns but often with significant differences from the actual values. The posterior distribution resembled the sample distribution but was significantly different, especially for department A. It was also fairly complex, with 12 coefficients.
+
+Looking back at the bar charts, it doesn't seem like there is a lot of similarity between departments. Nor is there a consistent pattern between genders - sometimes they are very similar and sometimes not. Also, the results from the second logistic regression seem promising. So, the next approach was to have a completely separate theta for each department and gender combination. Also, if that is the only factor then there is no need to have the logistic regression. As before we have 12 coefficients but now they are very easy to interpret.
+
+```{r echo=TRUE, results='hide'}
+  # JAGS model
+  mod_string = " model {
+      for (i in 1:length(accepted)) {
+          accepted[i] ~ dbern(theta_department_gender[department[i]+1, gender[i]+1])
+      }
+      
+      for (j in 1:6) {
+        for (k in 1:2) {
+          theta_department_gender[j,k] ~ dbeta(2,2)
+        } 
+      }
+  } "
 ```
+
+## Convergance
+The chains settled down nicely, with high effective sample sizes.
+
+# Results
+In our case, the true posterior distribution is very well understood so we can compare the thetas from the summary data to the thetas derived from the model. 
+```{r, echo=FALSE}
+model_admission_rate = hierarchical_bernoulli_results$model_thetas$model_admission_rate
+combined_thetas = original_thetas %>% add_column(model_admission_rate)
+kable(combined_thetas)
+
+```
+
+# Conclusions
+Bayesian methods seem very well suited to the task at hand. The patterns that were subjectively visible in the exploratory data analysis fell out reasonably well and the results are understandable. If we were in a real research project we could definitely pose all sorts of questions given our posterior.

@@ -40,8 +40,8 @@ dic
 
 summary(mod_sim)
 # male is 0
-# slope b[1] is slightly positive, so a slight increase for moving to female...
-# dic of 5278
+
+
 
 # Prediction
 (pm_coef = colMeans(mod_csim))
@@ -52,3 +52,27 @@ predicted_accepted = phat > 0.5
 (table_0.5 = table(predicted_accepted, dat$accepted) )
 sum(diag(table_0.5)) / sum(table_0.5)
 # predictions are right 71% of the time
+
+# extraction of thetas
+extracted_thetas = tibble(
+  Dept = character(),
+  Gender = character(),
+  model_admission_rate = numeric()
+  )
+
+genders = c("Male", "Female")
+departments = c("A", "B", "C", "D", "E", "F")
+
+for (department_index in seq(1,6)) {
+  for (gender_index in seq(1,2)) {
+    Dept = departments[department_index]
+    Gender = genders[gender_index]
+    
+    pm_Xb = pm_coef[department_index] + pm_coef[6 + department_index] * gender_index
+    model_admission_rate = 1.0 / (1.0 + exp(-pm_Xb))
+    
+    extracted_thetas = extracted_thetas %>% add_row(Dept = Dept, Gender = Gender, model_admission_rate = model_admission_rate)
+  }
+}
+
+extracted_thetas
